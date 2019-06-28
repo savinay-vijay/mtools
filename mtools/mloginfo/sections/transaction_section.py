@@ -1,3 +1,5 @@
+#SERVER-36414 - Log information about slow transactions
+
 import re
 from collections import namedtuple
 from operator import itemgetter
@@ -28,14 +30,18 @@ class TransactionSection(BaseSection):
     def __init__(self, mloginfo):
         BaseSection.__init__(self, mloginfo)
 
-        # add --queries flag to argparser
+        # add --transactions flag to argparser
         helptext = 'outputs statistics about transactions'
         self.mloginfo.argparser_sectiongroup.add_argument('--transactions',
                                                           action='store_true',
                                                           help=helptext)
+
+        # add --tsort flag to argparser for transaction sort
         self.mloginfo.argparser_sectiongroup.add_argument('--tsort',
                                                           action='store',
-                                                          choices=['duration'])
+
+                                                          choices=['duration'
+                                                                ])
 
     @property
     def active(self):
@@ -48,6 +54,7 @@ class TransactionSection(BaseSection):
         grouping = Grouping(group_by=lambda x: (x.datetime, x.txnNumber,
                                                 x.autocommit, x.readConcern, x.timeActiveMicros,
                                                 x.timeInactiveMicros, x.duration))
+
         logfile = self.mloginfo.logfile
 
         if logfile.start and logfile.end:
@@ -73,6 +80,7 @@ class TransactionSection(BaseSection):
             if (re.search('transaction', le.line_str)):
                 lt = LogTuple(le.datetime, le.txnNumber, le.autocommit, le.readConcern,
                               le.timeActiveMicros, le.timeInactiveMicros, le.duration)
+
                 grouping.add(lt)
 
         grouping.sort_by_size()
@@ -128,3 +136,4 @@ class TransactionSection(BaseSection):
                 # only one file
                 for logevent in self.mloginfo.args['logfile'][0]:
                     yield logevent
+

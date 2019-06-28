@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+
     <list default="true" id="5a619bd5-5131-43a2-a816-1b04451498d7" name="Default Changelist" comment="" />
+
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,6 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+
     <leaf>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mtools/data/index.html">
@@ -43,6 +46,7 @@
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
+
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -68,6 +72,7 @@
               <item name="mtools" type="462c0819:PsiDirectoryNode" />
               <item name="mloginfo" type="462c0819:PsiDirectoryNode" />
             </path>
+
           </expand>
           <select />
         </subPane>
@@ -75,6 +80,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -84,6 +90,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+
     </key>
   </component>
   <component name="RunDashboard">
@@ -98,8 +105,10 @@
       </list>
     </option>
   </component>
+
   <component name="RunManager" selected="Python.mloginfo">
     <configuration name="mlaunch" type="PythonConfigurationType" factoryName="Python" temporary="true">
+
       <module name="mtools" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -107,6 +116,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mtools/mlaunch" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -114,6 +124,7 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mtools/mlaunch/mlaunch.py" />
       <option name="PARAMETERS" value="--help" />
+
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="true" />
       <option name="MODULE_MODE" value="false" />
@@ -121,7 +132,9 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+
     <configuration name="mloginfo" type="PythonConfigurationType" factoryName="Python" temporary="true">
+
       <module name="mtools" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -136,6 +149,7 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mtools/mloginfo/mloginfo.py" />
       <option name="PARAMETERS" value="$PROJECT_DIR$/mtools/mongolog.log --transactions --tsort duration" />
+
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="true" />
       <option name="MODULE_MODE" value="false" />
@@ -151,6 +165,7 @@
       <list>
         <item itemvalue="Python.mloginfo" />
         <item itemvalue="Python.mlaunch" />
+
       </list>
     </recent_temporary>
   </component>
@@ -201,6 +216,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="SciView" />
       <window_info anchor="right" id="Database" />
+
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />

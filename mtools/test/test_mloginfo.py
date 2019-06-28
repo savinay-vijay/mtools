@@ -11,6 +11,9 @@ from mtools.mloginfo.mloginfo import MLogInfoTool
 from mtools.util.logfile import LogFile
 
 
+
+
+
 def random_date(start, end):
     """
     This function will return a random datetime between two datetime objects.
@@ -24,6 +27,7 @@ def random_date(start, end):
 class TestMLogInfo(object):
     """This class tests functionality around the mloginfo tool."""
 
+
     def setup(self):
         """Startup method to create mloginfo tool."""
         self.tool = MLogInfoTool()
@@ -31,8 +35,7 @@ class TestMLogInfo(object):
 
     def _test_init(self, filename='mongod_225.log'):
         # load logfile(s)
-        self.logfile_path = "/Users/miteshgosavi/mtools/mtools/mplotqueries/mongodb.log.2019-06-10T08-24-04"
-            #os.path.join(os.path.dirname(mtools.__file__),'test/logfiles/', filename)
+        self.logfile_path = os.path.join(os.path.dirname(mtools.__file__),'test/logfiles/', filename)
         self.logfile = LogFile(open(self.logfile_path, 'rb'))
 
     def test_basic(self):
@@ -48,6 +51,7 @@ class TestMLogInfo(object):
         assert results['length'] == '497'
         assert results['binary'] == 'mongod'
         assert results['version'] == '2.2.5'
+        return 1
 
     def test_28(self):
         self._test_init('mongod_278.log')
@@ -290,6 +294,7 @@ class TestMLogInfo(object):
 
     def test_queries_output(self):
         # different log file
+        print(self.logfile_path)
         self.tool.run('%s --queries' % self.logfile_path)
         output = sys.stdout.getvalue()
         lines = output.splitlines()
@@ -299,14 +304,15 @@ class TestMLogInfo(object):
         assert len(list(filter(lambda line: re.match(restring, line), lines))) >= 1
 
     def test_transaction_output(self):
-        # different log file
-        self.tool.run('%s --transactions' % self.logfile_path)
-        output = sys.stdout.getvalue()
-        lines = output.splitlines()
-        assert any(map(lambda line: 'TRANSACTIONS' in line, lines))
-        assert any(map(lambda line: line.startswith('datetime'), lines))
-        restring = r'\w+\.\w+\s+(datetime|autocommit| readconcern)\s+{'
-        assert len(list(filter(lambda line: re.match(restring, line), lines))) >= 1
+
+            # different log file
+            self.tool.run('%s --transactions' % self.logfile_path)
+            output = sys.stdout.getvalue()
+            lines = output.splitlines()
+            assert any(map(lambda line: 'TRANSACTIONS' in line, lines))
+            assert any(map(lambda line: line.startswith('lsid'), lines))
+            restring = r'\w+\.\w+\s+(numYields|locks)\s+{'
+            assert len(list(filter(lambda line: re.match(restring, line), lines))) >= 1
 
     def test_restarts_output(self):
         # different log file

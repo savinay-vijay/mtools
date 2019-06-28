@@ -20,6 +20,7 @@ try:
     from matplotlib import __version__ as mpl_version
     import mtools.mplotqueries.plottypes as plottypes
     import  re
+
 except ImportError as e:
     raise ImportError("Can't import matplotlib. See "
                       "github.com/rueckstiess/mtools/blob/master/INSTALL.md "
@@ -70,6 +71,12 @@ class MPlotQueriesTool(LogFileTool):
                                           "all existing overlays. Use "
                                           "'--overlay reset' to clear all "
                                           "overlays."))
+
+        #SERVER-32146 - --oplog flag to plot slow oplog operations on the secondary replica set
+        self.argparser.add_argument('--oplog', action='store_true',
+                                    help=('make a plot only for slow oplogs on the secondary replica set.'))
+        #SERVER-41349 - --dns flag to plot slow DNS Resolutions; Can be grouped by connector
+        self.argparser.add_argument('--dns', action='store_true', help='slow DNS Resolutions')
         self.argparser.add_argument('--type', action='store',
                                     default='scatter',
                                     choices=self.plot_types.keys(),
@@ -82,7 +89,7 @@ class MPlotQueriesTool(LogFileTool):
                                     help=("specify value to group on. "
                                           "Possible values depend on type of "
                                           "plot. All basic plot types can "
-                                          "group on 'namespace', 'operation', "
+                                          "group on 'namespace', 'connector', 'operation', "
                                           "'thread', 'pattern', range and "
                                           "histogram plots can additionally "
                                           "group on 'log2code'. The group can "
@@ -187,6 +194,7 @@ class MPlotQueriesTool(LogFileTool):
                 args=self.args,
                 unknown_args=self.unknown_args)
 
+
         for logfile in self.logfiles:
 
             # get log file information
@@ -206,6 +214,15 @@ class MPlotQueriesTool(LogFileTool):
 
             # find the checkpoint values
             for i, logevent in enumerate(logfile):
+                #SERVER-32146 - skip the log line if the --oplog flag is set and the line does not contain REPL or applied op
+                if(self.args['oplog'] and (logevent.component!="REPL" or not re.search("applied op:",logevent.line_str))):
+                    continue
+                #SERVER-41349 - skip the log line if the --dns flag is set and the line does not contain DNS information
+                if (self.args['dns'] and (
+                        not re.search("DNS resolution while connecting to", logevent.line_str))):
+
+                    continue
+
 
                 if self.args['checkpoints'] and not re.search("Checkpoint took", logevent.line_str):
                     continue
