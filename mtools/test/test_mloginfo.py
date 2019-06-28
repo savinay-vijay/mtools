@@ -35,7 +35,7 @@ class TestMLogInfo(object):
 
     def _test_init(self, filename='mongod_225.log'):
         # load logfile(s)
-        self.logfile_path = "/Users/savinayvijay/mtools_new/mtools/mtools/mplotqueries/mongod.log"
+        self.logfile_path = "mtools/test/logfiles/mongod.log"
             #os.path.join(os.path.dirname(mtools.__file__),'test/logfiles/', filename)
         self.logfile = LogFile(open(self.logfile_path, 'rb'))
 
