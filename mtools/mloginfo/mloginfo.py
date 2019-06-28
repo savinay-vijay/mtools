@@ -21,8 +21,7 @@ class MLogInfoTool(LogFileTool):
         inf = 'info sections'
         cmds = ('Below commands activate additional info sections for the '
                 'log file.')
-        self.argparser_sectiongroup = self.argparser.add_argument_group(inf,
-                                                                        cmds)
+        self.argparser_sectiongroup = self.argparser.add_argument_group(inf, cmds)
 
         # add all filter classes from the filters module
         self.sections = ([c[1](self)
@@ -77,7 +76,7 @@ class MLogInfoTool(LogFileTool):
                     if self.logfile.has_level:
                         version = '>= 3.0 (iso8601 format, level, component)'
                     else:
-                        version = '= 2.6.x (iso8601 format)'
+                        version = '2.6.x (iso8601 format)'
 
             print("    version: %s" % version)
             print("    storage: %s"

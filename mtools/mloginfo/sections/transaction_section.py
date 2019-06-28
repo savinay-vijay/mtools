@@ -1,29 +1,29 @@
 #SERVER-36414 - Log information about slow transactions
 
+import re
 from collections import namedtuple
 from operator import itemgetter
-
-from .base_section import BaseSection
 from mtools.util import OrderedDict
 from mtools.util.grouping import Grouping
 from mtools.util.print_table import print_table
-import re
+from .base_section import BaseSection
+
 
 try:
     import numpy as np
 except ImportError:
     np = None
 
-LogTuple = namedtuple('LogTuple', ['lsid', 'txnNumber', 'autocommit',
-                                   'readConcern','nscanned','numYield','timeActiveMicros','readTimestamp','terminationCause','locks','duration'])
+LogTuple = namedtuple('LogTuple', ['datetime', 'txnNumber', 'autocommit', 'readConcern',
+                                   'timeActiveMicros', 'timeInactiveMicros', 'duration'])
 
 
 def op_or_cmd(le):
-    return le.operation if le.operation != 'command' else le.command
+   return le.operation if le.operation != 'command' else le.command
 
 
 class TransactionSection(BaseSection):
-    """TransactionSection class."""
+    """QuerySection class."""
 
     name = "transactions"
 
@@ -35,6 +35,7 @@ class TransactionSection(BaseSection):
         self.mloginfo.argparser_sectiongroup.add_argument('--transactions',
                                                           action='store_true',
                                                           help=helptext)
+
         # add --tsort flag to argparser for transaction sort
         self.mloginfo.argparser_sectiongroup.add_argument('--tsort',
                                                           action='store',
@@ -50,8 +51,10 @@ class TransactionSection(BaseSection):
     def run(self):
 
         """Run this section and print out information."""
-        grouping = Grouping(group_by=lambda x: (x.lsid, x.txnNumber,
-                                                x.autocommit, x.readConcern, x.nscanned,x.numYield,x.timeActiveMicros,x.readTimestamp,x.terminationCause,x.locks,x.duration))
+        grouping = Grouping(group_by=lambda x: (x.datetime, x.txnNumber,
+                                                x.autocommit, x.readConcern, x.timeActiveMicros,
+                                                x.timeInactiveMicros, x.duration))
+
         logfile = self.mloginfo.logfile
 
         if logfile.start and logfile.end:
@@ -75,9 +78,9 @@ class TransactionSection(BaseSection):
                                           progress_total))
 
             if (re.search('transaction', le.line_str)):
+                lt = LogTuple(le.datetime, le.txnNumber, le.autocommit, le.readConcern,
+                              le.timeActiveMicros, le.timeInactiveMicros, le.duration)
 
-
-                lt = LogTuple(le.datetime, le.txnNumber, le.autocommit, le.readConcern, le.nscanned,le.numYields,le.timeActiveMicros,le.readTimestamp,le.terminationCause,le.locks,le.duration)
                 grouping.add(lt)
 
         grouping.sort_by_size()
@@ -91,51 +94,36 @@ class TransactionSection(BaseSection):
             print('no transactions found.')
             return
 
-        titles = ['lsid', 'txnNumber', 'autocommit', 'readConcern', 'keysExamined','numYield','timeActiveMicros','readTimestamp','terminationCause','locks','duration'
-                  ]
-        table_rows = []
+        titles = ['datetime','txnNumber', 'autocommit', 'readConcern', 'timeActiveMicros',
+                  'timeInactiveMicros', 'duration']
 
+        table_rows = []
+        # using only important key-values
+        # can be used in future
         for g in grouping:
             # calculate statistics for this group
-            lsid, txnNumber, autocommit, readConcern, keysExamined,numYield,timeActiveMicros,readTimestamp,terminationCause,locks,duration = g
+            datetime, txnNumber, autocommit, readConcern, timeActiveMicros, timeInactiveMicros, duration = g
             stats = OrderedDict()
-            stats['lsid'] = lsid
+            #stats['lsid'] = lsid
+            stats['datetime'] = str(datetime)
             stats['txnNumber'] = txnNumber
             stats['autocommit'] = autocommit
             stats['readConcern'] = readConcern
-            stats['keysExamined'] = keysExamined
-            stats['numYield'] = numYield
+            #stats['keysExamined'] = keysExamined
+            #stats['numYield'] = numYield
             stats['timeActiveMicros'] = timeActiveMicros
-            stats['readTimestamp'] = readTimestamp
-            stats['terminationCause'] = terminationCause
-            stats['locks'] = locks
+            stats['timeInactiveMicros'] = timeInactiveMicros
             stats['duration'] = duration
-
-            if stats['terminationCause'] == 'committed':
-                le._commitedCount += 1
-
-            elif stats['terminationCause'] == 'aborted':
-                le._abortedCount += 1
-
-
-
             table_rows.append(stats)
 
-        #if --tsort flag is set, sort transactions based on duration in descending order
+
         if(self.mloginfo.args['tsort'] == 'duration'):
-
-                            table_rows = sorted(table_rows,
-                            key=itemgetter(self.mloginfo.args['tsort']),
-                            reverse=True)
-
-
+            table_rows = sorted(table_rows,
+                                key=itemgetter(self.mloginfo.args['tsort']),
+                                reverse=True)
 
         print_table(table_rows, titles, uppercase_headers=True)
-        print('')
 
-        #count total committed and total aborted transactions
-        print("Total Committed: " + str(le._commitedCount))
-        print("Total Aborted: " + str(le._abortedCount))
         print('')
 
         def logfile_generator(self):

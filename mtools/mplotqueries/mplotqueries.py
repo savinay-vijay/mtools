@@ -19,7 +19,8 @@ try:
     from matplotlib.dates import AutoDateFormatter, date2num, AutoDateLocator
     from matplotlib import __version__ as mpl_version
     import mtools.mplotqueries.plottypes as plottypes
-    import re
+    import  re
+
 except ImportError as e:
     raise ImportError("Can't import matplotlib. See "
                       "github.com/rueckstiess/mtools/blob/master/INSTALL.md "
@@ -47,7 +48,7 @@ class MPlotQueriesTool(LogFileTool):
         plt.rcParams['keymap.xscale'] = ''
         plt.rcParams['keymap.yscale'] = ''
 
-        # import all plot type classes in plottypes module
+        # import all plot type classes in plot-types module
         self.plot_types = [c[1] for c in inspect.getmembers(plottypes,
                                                             inspect.isclass)]
         self.plot_types = dict((pt.plot_type_str,
@@ -125,9 +126,15 @@ class MPlotQueriesTool(LogFileTool):
                                     help=("Save the plot to a file instead of "
                                           "displaying it in a window"))
 
+        # SERVER-16176 - checkpoints argument has been added to the existing group
+        self.argparser.add_argument('--checkpoints',
+                                    action='store_true', default=None,
+                                    help=("display the slow transactions "
+                                          "with checkpoints"))
+
         self.legend = None
 
-        # progress bar
+        # progress bar status
         self.progress_bar_enabled = not self.is_stdin
 
     def run(self, arguments=None):
@@ -205,6 +212,7 @@ class MPlotQueriesTool(LogFileTool):
                     # protect from division by zero errors
                     self.progress_bar_enabled = False
 
+            # find the checkpoint values
             for i, logevent in enumerate(logfile):
                 #SERVER-32146 - skip the log line if the --oplog flag is set and the line does not contain REPL or applied op
                 if(self.args['oplog'] and (logevent.component!="REPL" or not re.search("applied op:",logevent.line_str))):
@@ -215,6 +223,9 @@ class MPlotQueriesTool(LogFileTool):
 
                     continue
 
+
+                if self.args['checkpoints'] and not re.search("Checkpoint took", logevent.line_str):
+                    continue
 
                 # adjust times if --optime-start is enabled
                 if (self.args['optime_start'] and

@@ -130,7 +130,7 @@ class QuerySection(BaseSection):
 
         # sort order depending on field names
         reverse = True
-        if self.mloginfo.args['sort'] in ['namespace', 'pattern']:
+        if self.mloginfo.args['sort'] in ['namespace', 'pattern', 'duration']:
             reverse = False
 
         table_rows = sorted(table_rows,

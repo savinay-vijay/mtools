@@ -1,0 +1,129 @@
+2019-06-14T14:25:28.814+0000 I  CONTROL  [conn43] pid=3898 port=27017 64-bit host=ip-172-31-32-231.eu-west-1.compute.internal
+2019-06-14T14:25:28.814+0000 I  CONTROL  [conn43] Replica Set Config: { _id: "loggingMachine", version: 1, protocolVersion: 1, writeConcernMajorityJournalDefault: true, members: [ { _id: 0, host: "ip-172-31-32-231.eu-west-1.compute.internal:27017", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 }, { _id: 1, host: "ip-172-31-35-188.eu-west-1.compute.internal:27017", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 }, { _id: 2, host: "ip-172-31-47-6.eu-west-1.compute.internal:27017", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 } ], settings: { chainingAllowed: true, heartbeatIntervalMillis: 2000, heartbeatTimeoutSecs: 10, electionTimeoutMillis: 10000, catchUpTimeoutMillis: -1, catchUpTakeoverDelayMillis: 30000, getLastErrorModes: {}, getLastErrorDefaults: { w: 1, wtimeout: 0 }, replicaSetId: ObjectId('5d03ae3d8389a385b8ea60bf') } }
+2019-06-14T14:25:28.814+0000 I  CONTROL  [conn43] Replica Set Member State: SECONDARY
+2019-06-14T14:25:28.814+0000 I  CONTROL  [conn43] db version v4.2.0-rc0
+2019-06-14T14:25:28.814+0000 I  CONTROL  [conn43] git version: f17ad42fb53a2b5ae224006fa8f36c531e6f0b04
+2019-06-14T14:25:28.814+0000 I  CONTROL  [conn43] OpenSSL version: OpenSSL 1.0.2k-fips  26 Jan 2017
+2019-06-14T14:25:28.814+0000 I  CONTROL  [conn43] allocator: tcmalloc
+2019-06-14T14:25:28.814+0000 I  CONTROL  [conn43] modules: enterprise 
+2019-06-14T14:25:28.814+0000 I  CONTROL  [conn43] build environment:
+2019-06-14T14:25:28.814+0000 I  CONTROL  [conn43]     distmod: amazon2
+2019-06-14T14:25:28.814+0000 I  CONTROL  [conn43]     distarch: x86_64
+2019-06-14T14:25:28.814+0000 I  CONTROL  [conn43]     target_arch: x86_64
+2019-06-14T14:25:28.814+0000 I  CONTROL  [conn43] options: { config: "/data/automation-mongod.conf", net: { bindIp: "0.0.0.0", port: 27017 }, processManagement: { fork: true }, replication: { replSetName: "loggingMachine" }, storage: { dbPath: "/data" }, systemLog: { destination: "file", path: "/data/log/mongodb.log" } }
+2019-06-14T14:25:33.085+0000 W  NETWORK  [conn43] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:25:33.101+0000 W  NETWORK  [conn43] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:25:38.754+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:25:38.754+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:25:38.754+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:25:43.150+0000 W  NETWORK  [conn43] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:25:43.166+0000 W  NETWORK  [conn43] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:25:50.461+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:25:50.461+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:25:50.461+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:25:53.214+0000 W  NETWORK  [conn43] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:25:53.231+0000 W  NETWORK  [conn43] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:03.288+0000 W  NETWORK  [conn43] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:03.304+0000 W  NETWORK  [conn43] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:04.664+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:26:04.664+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:04.664+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:26:13.349+0000 W  NETWORK  [conn43] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:13.371+0000 W  NETWORK  [conn43] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:14.188+0000 I  NETWORK  [conn43] end connection 172.31.32.231:33868 (13 connections now open)
+2019-06-14T14:26:14.188+0000 I  NETWORK  [conn41] end connection 172.31.32.231:33864 (12 connections now open)
+2019-06-14T14:26:14.244+0000 I  NETWORK  [listener] connection accepted from 172.31.32.231:33950 #61 (13 connections now open)
+2019-06-14T14:26:14.244+0000 I  NETWORK  [listener] connection accepted from 172.31.32.231:33952 #62 (14 connections now open)
+2019-06-14T14:26:14.245+0000 I  NETWORK  [conn61] end connection 172.31.32.231:33950 (13 connections now open)
+2019-06-14T14:26:14.245+0000 I  NETWORK  [listener] connection accepted from 172.31.32.231:33954 #63 (14 connections now open)
+2019-06-14T14:26:14.245+0000 I  NETWORK  [conn63] received client metadata from 172.31.32.231:33954 conn63: { driver: { name: "mongo-go-driver", version: "v1.0.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.11.9", application: { name: "MongoDB Automation Agent v10.1.2.5805 (git: 305efa9235d7bbdb2353fbc0f4d20f87d4c6e5bd)" } }
+2019-06-14T14:26:14.265+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:14.293+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:14.484+0000 I  NETWORK  [conn19] end connection 172.31.47.6:38398 (13 connections now open)
+2019-06-14T14:26:14.484+0000 I  NETWORK  [conn18] end connection 172.31.47.6:38396 (12 connections now open)
+2019-06-14T14:26:14.578+0000 I  NETWORK  [listener] connection accepted from 172.31.47.6:38528 #64 (13 connections now open)
+2019-06-14T14:26:14.578+0000 I  NETWORK  [listener] connection accepted from 172.31.47.6:38526 #65 (14 connections now open)
+2019-06-14T14:26:14.578+0000 I  NETWORK  [conn65] end connection 172.31.47.6:38526 (13 connections now open)
+2019-06-14T14:26:14.580+0000 I  NETWORK  [listener] connection accepted from 172.31.47.6:38530 #66 (14 connections now open)
+2019-06-14T14:26:14.580+0000 I  NETWORK  [conn66] received client metadata from 172.31.47.6:38530 conn66: { driver: { name: "mongo-go-driver", version: "v1.0.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.11.9", application: { name: "MongoDB Automation Agent v10.1.2.5805 (git: 305efa9235d7bbdb2353fbc0f4d20f87d4c6e5bd)" } }
+2019-06-14T14:26:15.833+0000 I  CONNPOOL [RS] Ending idle connection to host ip-172-31-47-6.eu-west-1.compute.internal:27017 because the pool meets constraints; 2 connections to that host remain open
+2019-06-14T14:26:18.604+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:26:18.605+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:18.605+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:26:20.573+0000 I  NETWORK  [conn16] end connection 172.31.35.188:34728 (13 connections now open)
+2019-06-14T14:26:20.573+0000 I  NETWORK  [conn15] end connection 172.31.35.188:34726 (12 connections now open)
+2019-06-14T14:26:20.658+0000 I  NETWORK  [listener] connection accepted from 172.31.35.188:34820 #67 (13 connections now open)
+2019-06-14T14:26:20.658+0000 I  NETWORK  [listener] connection accepted from 172.31.35.188:34822 #68 (14 connections now open)
+2019-06-14T14:26:20.659+0000 I  NETWORK  [conn67] end connection 172.31.35.188:34820 (13 connections now open)
+2019-06-14T14:26:20.660+0000 I  NETWORK  [listener] connection accepted from 172.31.35.188:34824 #69 (14 connections now open)
+2019-06-14T14:26:20.660+0000 I  NETWORK  [conn69] received client metadata from 172.31.35.188:34824 conn69: { driver: { name: "mongo-go-driver", version: "v1.0.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.11.9", application: { name: "MongoDB Automation Agent v10.1.2.5805 (git: 305efa9235d7bbdb2353fbc0f4d20f87d4c6e5bd)" } }
+2019-06-14T14:26:24.341+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:24.360+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:31.887+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:26:31.887+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:31.887+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:26:34.413+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:34.432+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:44.486+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:44.506+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:48.753+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:26:48.753+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:48.753+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:26:54.559+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:26:54.576+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:01.302+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:27:01.302+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:01.302+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:27:04.625+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:04.644+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:14.697+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:14.713+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:15.922+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:27:15.922+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:15.922+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:27:24.769+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:24.786+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:26.678+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:27:26.678+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:26.678+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:27:34.835+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:34.854+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:43.282+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:27:43.282+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:43.282+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:27:44.904+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:44.923+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:54.973+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:54.990+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:56.520+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:27:56.520+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:27:56.520+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:28:05.041+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:28:05.060+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:28:09.430+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:28:09.430+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:28:09.430+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:28:15.112+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:28:15.129+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:28:22.845+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:28:22.845+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:28:22.845+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:28:25.181+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:28:25.198+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:28:35.246+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:28:35.266+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:28:38.059+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:28:38.059+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:28:38.059+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:28:45.317+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:28:45.338+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:28:52.898+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:28:52.898+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:28:52.898+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:28:55.390+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:28:55.405+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:29:03.316+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'disableNonSSLConnectionLogging', please use 'disableNonTLSConnectionLogging' instead.
+2019-06-14T14:29:03.316+0000 W  NETWORK  [conn35] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:29:03.316+0000 W  CONTROL  [conn35] Use of deprecated server parameter 'sslWithholdClientCertificate', please use 'tlsWithholdClientCertificate' instead.
+2019-06-14T14:29:05.453+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.
+2019-06-14T14:29:05.473+0000 W  NETWORK  [conn63] Use of deprecared server parameter 'sslMode', please use 'tlsMode' instead.

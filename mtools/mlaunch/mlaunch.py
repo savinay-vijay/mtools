@@ -48,6 +48,8 @@ except ImportError as e:
                       "instructions on how to install pymongo: " + str(e))
 
 
+
+
 class MongoConnection(Connection):
     """
     MongoConnection class.
@@ -195,8 +197,14 @@ class MLaunchTool(BaseCmdLineTool):
                                     default=False,
                                     help='disables progress bar')
 
+        self.argparser.add_argument('--TestingParameter', action='version',
+                                    help='Can be used for the future work.')
+
+
         self.argparser.description = ('script to launch MongoDB stand-alone '
                                       'servers, replica sets and shards.')
+
+
 
         # make sure init is default command even when specifying
         # arguments directly

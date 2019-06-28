@@ -56,6 +56,7 @@ class LogEvent(object):
               'Oct', 'Nov', 'Dec']
 
     log_operations = ['query', 'insert', 'update', 'remove', 'getmore',
+
                       'command','transaction','aggregate']
     log_levels = ['D', 'F', 'E', 'W', 'I', 'U']
     log_components = ['-', 'ACCESS', 'COMMAND', 'CONTROL', 'GEO', 'INDEX',
@@ -105,6 +106,15 @@ class LogEvent(object):
         self._sort_pattern = None
         self._actual_query = None
         self._actual_sort = None
+        self._lsid = None
+        self._txnNumber = None
+        self._autocommit = None
+        self._readConcern = None
+        self._timeActiveMicros = None
+        self._checkpoints = None
+
+
+
 
 
         #SERVER-36414 - parameters for slow transactions
@@ -148,12 +158,15 @@ class LogEvent(object):
         self._r = None
         self._w = None
         self._conn = None
+
         self._allowDiskUse = None
         self._level_calculated = False
         self._level = None
         self._component = None
+        self.checkpoints = None
 
         self.merge_marker_str = ''
+
 
 
     def set_line_str(self, line_str):
@@ -220,6 +233,10 @@ class LogEvent(object):
                                      self.line_str)
                 if matchobj:
                     self._duration = int(matchobj.group(1))
+
+            # SERVER-16176 log the checkpoints
+            elif "Checkpoint" in self.line_str:
+                self._duration = int(line_str[line_str.find("Checkpoint took") + len("Checkpoint took"): -20]) *1000
 
         return self._duration
 
@@ -539,7 +556,8 @@ class LogEvent(object):
 
     @property
     def timeActiveMicros(self):
-        """Extract timeActiveMicros counter if available (lazy)."""
+        """Extract timeActiveMicros if available (lazy)."""
+
         if not self._counters_calculated:
             self._counters_calculated = True
             self._extract_counters()
@@ -547,6 +565,16 @@ class LogEvent(object):
         return self._timeActiveMicros
 
     @property
+    def timeInactiveMicros(self):
+        """Extract timeInactiveMicros if available (lazy)."""
+        if not self._counters_calculated:
+            self._counters_calculated = True
+            self._extract_counters()
+
+        return self._timeInactiveMicros
+
+    @property
+
     def nscannedObjects(self):
         """
         Extract counters if available (lazy).
@@ -642,11 +670,14 @@ class LogEvent(object):
 
     @property
 
+
     def allowDiskUse(self):
         """Extract allowDiskUse counter for aggregation if available (lazy)."""
+      
         if not self._counters_calculated:
             self._counters_calculated = True
             self._extract_counters()
+
 
         return self._allowDiskUse
 
@@ -658,6 +689,7 @@ class LogEvent(object):
             self._extract_counters()
 
         return self._readTimestamp
+
 
     @property
     def planSummary(self):
@@ -688,6 +720,7 @@ class LogEvent(object):
 
     @property
     def lsid(self):
+
         """Extract lsid counter if available (lazy)."""
         self._lsid = self._find_pattern('lsid: ',actual=True)
         return self._lsid
@@ -703,6 +736,16 @@ class LogEvent(object):
     @property
     def txnNumber(self):
         """Extract txnNumber counter for transactions if available (lazy)."""
+        """Extract read lock (r) counter if available (lazy)."""
+        if not self._counters_calculated:
+            self._counters_calculated = True
+            self._extract_counters()
+
+        return self._lsid
+
+    @property
+    def txnNumber(self):
+        """Extract read lock (r) counter if available (lazy)."""
         if not self._counters_calculated:
             self._counters_calculated = True
             self._extract_counters()
@@ -711,6 +754,7 @@ class LogEvent(object):
 
     @property
     def autocommit(self):
+
         """Extract autocommit counter for transactions if available (lazy)."""
         if not self._counters_calculated:
             self._counters_calculated = True
@@ -720,6 +764,7 @@ class LogEvent(object):
 
     @property
     def readConcern(self):
+
         """Extract readConcern Level if available (lazy)."""
         if not self._counters_calculated:
             self._counters_calculated = True
@@ -743,17 +788,29 @@ class LogEvent(object):
         # extract counters (if present)
         counters = ['nscanned', 'nscannedObjects', 'ntoreturn', 'nreturned',
                     'ninserted', 'nupdated', 'ndeleted', 'r', 'w', 'numYields',
-                    'planSummary', 'writeConflicts', 'keyUpdates','allowDiskUse','lsid','txnNumber','autocommit','level','timeActiveMicros','readTimestamp','terminationCause','locks']
+                    'planSummary', 'writeConflicts', 'keyUpdates','allowDiskUse','lsid','txnNumber','autocommit','level',
+                    'timeActiveMicros', 'timeInactiveMacros', 'duration', 'checkpoint','readTimestamp','terminationCause','locks']
+
 
         # TODO: refactor mtools to use current counter names throughout
         # Transitionary hack: mapping of current names into prior equivalents
         counter_equiv = {
+            'datetime':'datetime',
             'docsExamined': 'nscannedObjects',
             'keysExamined': 'nscanned',
             'nDeleted': 'ndeleted',
             'nInserted': 'ninserted',
             'nMatched': 'nreturned',
             'nModified': 'nupdated',
+            'allowDiskUse' : 'allowDiskUse',
+            'lsid' : 'lsid',
+            'txnNumber' : 'txnNumber',
+            'autocommit' : 'autocommit',
+            'level' : 'level',
+            'timeActiveMicros' : 'timeActiveMicros',
+            'timeInactiveMicros' : 'timeInactiveMicros',
+            'duration':'duration',
+            'checkpoint' : 'checkpoint'
 
         }
         counters.extend(counter_equiv.keys())
@@ -771,12 +828,12 @@ class LogEvent(object):
                 for counter in counters:
 
                     if token.startswith('%s:' % counter):
-
                         try:
 
 
                             # Remap counter to standard name, if applicable
                             counter = counter_equiv.get(counter, counter)
+
 
                             #extract allowDiskUse counter
                             if(counter == 'allowDiskUse' and
@@ -791,6 +848,7 @@ class LogEvent(object):
                                 try:
                                     self._readConcern = (
                                     split_tokens[t + 1 + self.datetime_nextpos + 2].replace(',', ''))
+
                                 except ValueError:
                                     pass
                             elif(counter =='readTimestamp' and token.startswith('readTimestamp')):
@@ -799,11 +857,16 @@ class LogEvent(object):
                             elif(counter=='terminationCause' and token.startswith('terminationCause')):
                                 vars(self)['_' + counter] = (token.split(':')
                                 [-1]).replace(',', '')
+
+                                    
+                                except ValueError:
+                                    pass
+
+
                             else :
                                 vars(self)['_' + counter] = int((token.split(':')
                                 [-1]).replace(',',
                                               ''))
-
 
                         except ValueError:
                             # see if this is a pre-2.5.2 numYields with space
@@ -837,13 +900,6 @@ class LogEvent(object):
                                     #print(self._autocommit)
                                 except ValueError:
                                     pass
-                            if (counter == 'r' and
-                                        token.startswith('r')):
-                                    try:
-                                        self._r = (split_tokens[t + 1 + self.datetime_nextpos + 2].replace(',', ''))
-                                        # print(self._autocommit)
-                                    except ValueError:
-                                        pass
 
                             if (counter == 'planSummary' and
                                     token.startswith('planSummary')):
@@ -920,6 +976,7 @@ class LogEvent(object):
         numYields = self.numYields
         usedDisk = self.usedDisk
         txnNumber = self.txnNumber
+        checkpoints = self.checkpoints
         w = self.w
         r = self.r
 
@@ -1008,7 +1065,10 @@ class LogEvent(object):
             labels = ['line_str', 'split_tokens', 'datetime', 'operation',
                       'thread', 'namespace', 'nscanned', 'ntoreturn',
                       'nreturned', 'ninserted', 'nupdated', 'ndeleted',
-                      'duration', 'r', 'w', 'numYields','usedDisk','txtNumber','lsid','autocommit','readConcern','timeActiveMicros','readTimestamp']
+
+                      'duration', 'r', 'w', 'numYields','usedDisk','txtNumber','lsid','autocommit','readConcern',
+                      'timeActiveMicros', 'timeInactiveMicros', 'checkpoints']
+
 
         for label in labels:
             value = getattr(self, label, None)
@@ -1033,6 +1093,9 @@ class LogEvent(object):
 
         self._duration_calculated = True
         self._duration = doc[u'millis']
+
+        self._checkpoints_calculated = True
+        self.checkpoints = doc[u'seconds']
 
         self._datetime_calculated = True
         self._datetime = doc[u'ts']
@@ -1088,7 +1151,12 @@ class LogEvent(object):
         self._autocommit = doc[u'autocommit'] if 'autocommit' in doc else None
         self._readConcern= doc[u'level'] if 'level' in doc else None
         self._timeActiveMicros = doc[u'timeActiveMicros'] if 'timeActiveMicros' in doc else None
-        self._timeActiveMicros = doc[u'readTimestamp'] if 'readTimestamp' in doc else None
+        self._timeInactiveMicros = doc[u'timeInactiveMicros'] if 'timeInactiveMicros' in doc else None
+        self._duration = doc[u'duration'] if 'duration' in doc else None
+        self._datetime = doc[u'datetime'] if 'datetime' in doc else None
+        self.checkpoints = doc[u'checkpoints'] if 'checkpoints' in doc else None
+
+
 
         if u'lockStats' in doc:
             self._r = doc[u'lockStats'][u'timeLockedMicros'][u'r']
@@ -1116,14 +1184,15 @@ class LogEvent(object):
         scanned = 'nscanned:%i' % self._nscanned if 'nscanned' in doc else ''
         yields = 'numYields:%i' % self._numYields if 'numYield' in doc else ''
         duration = '%ims' % self.duration if self.duration is not None else ''
+        checkpoints = '%i seconds to complete' % self.checkpoints if self.duration is not None else ''
 
         self._line_str = ("[{thread}] {operation} {namespace} {payload} "
                           "{scanned} {yields} locks(micros) {locks} "
-                          "{duration}".format(datetime=self.datetime,
+                          "{duration}""{checkpoints}".format(datetime=self.datetime,
                                               thread=self.thread,
                                               operation=self.operation,
                                               namespace=self.namespace,
                                               payload=payload, scanned=scanned,
                                               yields=yields, locks=locks,
-                                              duration=duration))
+                                              duration=duration, checkpoints=checkpoints))
 

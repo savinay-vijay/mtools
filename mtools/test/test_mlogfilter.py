@@ -506,8 +506,7 @@ def _add_component_test(cls, name, component, expected):
 
 _add_component_test(TestMLogFilter, 'test_total_component', 'TOTAL', 1)
 _add_component_test(TestMLogFilter, 'test_s2_component', 'GEO', 1)
-_add_component_test(TestMLogFilter, 'test_all_component',
-                    " ".join(LogEvent.log_components), 25)
+_add_component_test(TestMLogFilter, 'test_all_component', " ".join(LogEvent.log_components), 25)
 _add_component_test(TestMLogFilter, 'test_dash_component', '-', 10)
 _add_component_test(TestMLogFilter, 'test_access_component', 'ACCESS', 1)
 _add_component_test(TestMLogFilter, 'test_commands_component', 'COMMAND', 1)

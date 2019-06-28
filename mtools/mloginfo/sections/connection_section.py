@@ -158,9 +158,6 @@ class ConnectionSection(BaseSection):
 
                     connections_start[end_connid] = END_TIME_ALREADY_FOUND
 
-            if "SocketException" in line:
-                socket_exceptions += 1
-
         # calculate totals
         total_opened = sum(ip_opened.values())
         total_closed = sum(ip_closed.values())
@@ -173,6 +170,7 @@ class ConnectionSection(BaseSection):
         print("     total closed: %s" % total_closed)
         print("    no unique IPs: %s" % len(unique_ips))
         print("socket exceptions: %s" % socket_exceptions)
+
         if genstats:
             if fullconn_counts > 0:
                 print("overall average connection duration(s): %s"

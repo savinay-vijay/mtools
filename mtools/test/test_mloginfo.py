@@ -35,8 +35,7 @@ class TestMLogInfo(object):
 
     def _test_init(self, filename='mongod_225.log'):
         # load logfile(s)
-        self.logfile_path = "mtools/test/logfiles/mongod.log"
-            #os.path.join(os.path.dirname(mtools.__file__),'test/logfiles/', filename)
+        self.logfile_path = os.path.join(os.path.dirname(mtools.__file__),'test/logfiles/', filename)
         self.logfile = LogFile(open(self.logfile_path, 'rb'))
 
     def test_basic(self):
@@ -305,6 +304,7 @@ class TestMLogInfo(object):
         assert len(list(filter(lambda line: re.match(restring, line), lines))) >= 1
 
     def test_transaction_output(self):
+
             # different log file
             self.tool.run('%s --transactions' % self.logfile_path)
             output = sys.stdout.getvalue()
