@@ -1,0 +1,156 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf500
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red180\green36\blue25;}
+{\*\expandedcolortbl;;\csgray\c0;\cssrgb\c76409\c21698\c12524;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh17500\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \CocoaLigature0 Last login: Tue Jun 25 16:37:55 on ttys001\
+-bash: export: `2019.03': not a valid identifier\
+-bash: /anaconda3/etc/profile.d/conda.sh: No such file or directory\
+-bash: /anaconda3/etc/profile.d/conda.sh: No such file or directory\
+-bash: /anaconda3/etc/profile.d/conda.sh: No such file or directory\
+-bash: /anaconda3/etc/profile.d/conda.sh: No such file or directory\
+(base) $ brew services stop mongodb\
+\cf3 Error:\cf2  Service `mongodb` is not started.\
+(base) $ mongod\
+2019-06-25T16:44:10.330+0100 I CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'\
+2019-06-25T16:44:10.333+0100 I CONTROL  [initandlisten] MongoDB starting : pid=7918 port=27017 dbpath=/data/db 64-bit host=Savinays-MacBook-Pro.local\
+2019-06-25T16:44:10.333+0100 I CONTROL  [initandlisten] db version v4.0.10\
+2019-06-25T16:44:10.333+0100 I CONTROL  [initandlisten] git version: c389e7f69f637f7a1ac3cc9fae843b635f20b766\
+2019-06-25T16:44:10.333+0100 I CONTROL  [initandlisten] allocator: system\
+2019-06-25T16:44:10.333+0100 I CONTROL  [initandlisten] modules: enterprise \
+2019-06-25T16:44:10.333+0100 I CONTROL  [initandlisten] build environment:\
+2019-06-25T16:44:10.333+0100 I CONTROL  [initandlisten]     distarch: x86_64\
+2019-06-25T16:44:10.333+0100 I CONTROL  [initandlisten]     target_arch: x86_64\
+2019-06-25T16:44:10.333+0100 I CONTROL  [initandlisten] options: \{\}\
+2019-06-25T16:44:10.334+0100 E STORAGE  [initandlisten] Failed to set up listener: SocketException: Address already in use\
+2019-06-25T16:44:10.334+0100 I CONTROL  [initandlisten] now exiting\
+2019-06-25T16:44:10.334+0100 I CONTROL  [initandlisten] shutting down with code:48\
+(base) $ ls\
+Applications		New Unity Project	mflix-python\
+Desktop			Pictures		mongodb\
+Documents		Public			mtools\
+Downloads		Untitled.ipynb		mtools_dav\
+Library			env			mtools_env\
+Movies			m			mtools_new\
+Music			m001			om_ansible\
+(base) $ cd desktop/db\
+(base) $ ls\
+WiredTiger				diagnostic.data\
+WiredTiger.lock				index-1--1114070077775646922.wt\
+WiredTiger.turtle			index-2--1198326947474508699.wt\
+WiredTiger.wt				index-3--1114070077775646922.wt\
+WiredTigerLAS.wt			index-5--1114070077775646922.wt\
+_mdb_catalog.wt				index-6--1114070077775646922.wt\
+collection-0--1114070077775646922.wt	index-8--1114070077775646922.wt\
+collection-0--1198326947474508699.wt	journal\
+collection-1--1198326947474508699.wt	mongod.lock\
+collection-2--1114070077775646922.wt	sizeStorer.wt\
+collection-4--1114070077775646922.wt	storage.bson\
+collection-7--1114070077775646922.wt\
+(base) $ mongod --dbpath=. --port 27018\
+2019-06-25T16:44:31.982+0100 I CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'\
+2019-06-25T16:44:31.985+0100 I CONTROL  [initandlisten] MongoDB starting : pid=7921 port=27018 dbpath=. 64-bit host=Savinays-MacBook-Pro.local\
+2019-06-25T16:44:31.985+0100 I CONTROL  [initandlisten] db version v4.0.10\
+2019-06-25T16:44:31.985+0100 I CONTROL  [initandlisten] git version: c389e7f69f637f7a1ac3cc9fae843b635f20b766\
+2019-06-25T16:44:31.985+0100 I CONTROL  [initandlisten] allocator: system\
+2019-06-25T16:44:31.985+0100 I CONTROL  [initandlisten] modules: enterprise \
+2019-06-25T16:44:31.985+0100 I CONTROL  [initandlisten] build environment:\
+2019-06-25T16:44:31.985+0100 I CONTROL  [initandlisten]     distarch: x86_64\
+2019-06-25T16:44:31.985+0100 I CONTROL  [initandlisten]     target_arch: x86_64\
+2019-06-25T16:44:31.985+0100 I CONTROL  [initandlisten] options: \{ net: \{ port: 27018 \}, storage: \{ dbPath: "." \} \}\
+2019-06-25T16:44:31.986+0100 I STORAGE  [initandlisten] exception in initAndListen: DBPathInUse: Unable to lock the lock file: ./mongod.lock (Resource temporarily unavailable). Another mongod instance is already running on the . directory, terminating\
+2019-06-25T16:44:31.986+0100 I NETWORK  [initandlisten] shutdown: going to close listening sockets...\
+2019-06-25T16:44:31.986+0100 I NETWORK  [initandlisten] removing socket file: /tmp/mongodb-27018.sock\
+2019-06-25T16:44:31.986+0100 I CONTROL  [initandlisten] now exiting\
+2019-06-25T16:44:31.986+0100 I CONTROL  [initandlisten] shutting down with code:100\
+(base) $ mongod --dbpath=.\
+2019-06-25T16:44:49.850+0100 I CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'\
+2019-06-25T16:44:49.853+0100 I CONTROL  [initandlisten] MongoDB starting : pid=7922 port=27017 dbpath=. 64-bit host=Savinays-MacBook-Pro.local\
+2019-06-25T16:44:49.853+0100 I CONTROL  [initandlisten] db version v4.0.10\
+2019-06-25T16:44:49.853+0100 I CONTROL  [initandlisten] git version: c389e7f69f637f7a1ac3cc9fae843b635f20b766\
+2019-06-25T16:44:49.853+0100 I CONTROL  [initandlisten] allocator: system\
+2019-06-25T16:44:49.853+0100 I CONTROL  [initandlisten] modules: enterprise \
+2019-06-25T16:44:49.853+0100 I CONTROL  [initandlisten] build environment:\
+2019-06-25T16:44:49.853+0100 I CONTROL  [initandlisten]     distarch: x86_64\
+2019-06-25T16:44:49.853+0100 I CONTROL  [initandlisten]     target_arch: x86_64\
+2019-06-25T16:44:49.853+0100 I CONTROL  [initandlisten] options: \{ storage: \{ dbPath: "." \} \}\
+2019-06-25T16:44:49.854+0100 E STORAGE  [initandlisten] Failed to set up listener: SocketException: Address already in use\
+2019-06-25T16:44:49.854+0100 I CONTROL  [initandlisten] now exiting\
+2019-06-25T16:44:49.854+0100 I CONTROL  [initandlisten] shutting down with code:48\
+(base) $ cd\
+(base) $ ls\
+Applications		Pictures		mongodb\
+Desktop			Public			mtools\
+Documents		Untitled.ipynb		mtools_dav\
+Downloads		db			mtools_env\
+Library			env			mtools_new\
+Movies			m			om_ansible\
+Music			m001\
+New Unity Project	mflix-python\
+(base) $ cd db\
+(base) $ mongod --dbpath=.\
+2019-06-25T16:45:26.999+0100 I CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'\
+2019-06-25T16:45:27.002+0100 I CONTROL  [initandlisten] MongoDB starting : pid=7924 port=27017 dbpath=. 64-bit host=Savinays-MacBook-Pro.local\
+2019-06-25T16:45:27.002+0100 I CONTROL  [initandlisten] db version v4.0.10\
+2019-06-25T16:45:27.002+0100 I CONTROL  [initandlisten] git version: c389e7f69f637f7a1ac3cc9fae843b635f20b766\
+2019-06-25T16:45:27.002+0100 I CONTROL  [initandlisten] allocator: system\
+2019-06-25T16:45:27.002+0100 I CONTROL  [initandlisten] modules: enterprise \
+2019-06-25T16:45:27.002+0100 I CONTROL  [initandlisten] build environment:\
+2019-06-25T16:45:27.002+0100 I CONTROL  [initandlisten]     distarch: x86_64\
+2019-06-25T16:45:27.002+0100 I CONTROL  [initandlisten]     target_arch: x86_64\
+2019-06-25T16:45:27.002+0100 I CONTROL  [initandlisten] options: \{ storage: \{ dbPath: "." \} \}\
+2019-06-25T16:45:27.003+0100 E STORAGE  [initandlisten] Failed to set up listener: SocketException: Address already in use\
+2019-06-25T16:45:27.003+0100 I CONTROL  [initandlisten] now exiting\
+2019-06-25T16:45:27.003+0100 I CONTROL  [initandlisten] shutting down with code:48\
+(base) $ mongod --dbpath=. --port 27018\
+2019-06-25T16:45:45.428+0100 I CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'\
+2019-06-25T16:45:45.431+0100 I CONTROL  [initandlisten] MongoDB starting : pid=7925 port=27018 dbpath=. 64-bit host=Savinays-MacBook-Pro.local\
+2019-06-25T16:45:45.431+0100 I CONTROL  [initandlisten] db version v4.0.10\
+2019-06-25T16:45:45.431+0100 I CONTROL  [initandlisten] git version: c389e7f69f637f7a1ac3cc9fae843b635f20b766\
+2019-06-25T16:45:45.431+0100 I CONTROL  [initandlisten] allocator: system\
+2019-06-25T16:45:45.431+0100 I CONTROL  [initandlisten] modules: enterprise \
+2019-06-25T16:45:45.431+0100 I CONTROL  [initandlisten] build environment:\
+2019-06-25T16:45:45.431+0100 I CONTROL  [initandlisten]     distarch: x86_64\
+2019-06-25T16:45:45.431+0100 I CONTROL  [initandlisten]     target_arch: x86_64\
+2019-06-25T16:45:45.431+0100 I CONTROL  [initandlisten] options: \{ net: \{ port: 27018 \}, storage: \{ dbPath: "." \} \}\
+2019-06-25T16:45:45.431+0100 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=7680M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),\
+2019-06-25T16:45:45.839+0100 I STORAGE  [initandlisten] WiredTiger message [1561477545:839274][7925:0x1202065c0], txn-recover: Set global recovery timestamp: 0\
+2019-06-25T16:45:45.870+0100 I RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)\
+2019-06-25T16:45:45.916+0100 I CONTROL  [initandlisten] \
+2019-06-25T16:45:45.917+0100 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.\
+2019-06-25T16:45:45.917+0100 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.\
+2019-06-25T16:45:45.917+0100 I CONTROL  [initandlisten] \
+2019-06-25T16:45:45.917+0100 I CONTROL  [initandlisten] ** WARNING: This server is bound to localhost.\
+2019-06-25T16:45:45.917+0100 I CONTROL  [initandlisten] **          Remote systems will be unable to connect to this server. \
+2019-06-25T16:45:45.917+0100 I CONTROL  [initandlisten] **          Start the server with --bind_ip <address> to specify which IP \
+2019-06-25T16:45:45.917+0100 I CONTROL  [initandlisten] **          addresses it should serve responses from, or with --bind_ip_all to\
+2019-06-25T16:45:45.917+0100 I CONTROL  [initandlisten] **          bind to all interfaces. If this behavior is desired, start the\
+2019-06-25T16:45:45.917+0100 I CONTROL  [initandlisten] **          server with --bind_ip 127.0.0.1 to disable this warning.\
+2019-06-25T16:45:45.917+0100 I CONTROL  [initandlisten] \
+2019-06-25T16:45:45.917+0100 I CONTROL  [initandlisten] \
+2019-06-25T16:45:45.917+0100 I CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000\
+2019-06-25T16:45:45.919+0100 I STORAGE  [initandlisten] createCollection: admin.system.version with provided UUID: 8eb93e4b-e04c-428d-8f8e-6313e6695d67\
+2019-06-25T16:45:45.952+0100 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 4.0\
+2019-06-25T16:45:45.957+0100 I STORAGE  [initandlisten] createCollection: local.startup_log with generated UUID: 37f0731f-bd34-440a-acb5-3bcd8f5f2c57\
+2019-06-25T16:45:45.993+0100 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory './diagnostic.data'\
+2019-06-25T16:45:45.994+0100 I NETWORK  [initandlisten] waiting for connections on port 27018\
+2019-06-25T16:45:45.995+0100 I STORAGE  [LogicalSessionCacheRefresh] createCollection: config.system.sessions with generated UUID: c847147b-2c62-4ee6-bbfb-c47d8f1e59e5\
+2019-06-25T16:45:46.041+0100 I INDEX    [LogicalSessionCacheRefresh] build index on: config.system.sessions properties: \{ v: 2, key: \{ lastUse: 1 \}, name: "lsidTTLIndex", ns: "config.system.sessions", expireAfterSeconds: 1800 \}\
+2019-06-25T16:45:46.041+0100 I INDEX    [LogicalSessionCacheRefresh] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM\
+2019-06-25T16:45:46.048+0100 I INDEX    [LogicalSessionCacheRefresh] build index done.  scanned 0 total records. 0 secs\
+^[[A^[[A^[[A^X\
+\
+\
+^X^C2019-06-25T17:03:20.321+0100 I CONTROL  [signalProcessingThread] got signal 2 (Interrupt: 2), will terminate after current cmd ends\
+2019-06-25T17:03:20.321+0100 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...\
+2019-06-25T17:03:20.321+0100 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27018.sock\
+2019-06-25T17:03:20.321+0100 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture\
+2019-06-25T17:03:20.323+0100 I STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down\
+2019-06-25T17:03:20.323+0100 I STORAGE  [signalProcessingThread] Shutting down session sweeper thread\
+2019-06-25T17:03:20.323+0100 I STORAGE  [signalProcessingThread] Finished shutting down session sweeper thread\
+2019-06-25T17:03:20.407+0100 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...\
+2019-06-25T17:03:20.408+0100 I CONTROL  [signalProcessingThread] now exiting\
+2019-06-25T17:03:20.408+0100 I CONTROL  [signalProcessingThread] shutting down with code:0\
+(base) $ mongod --dbpath=. --port 27018\

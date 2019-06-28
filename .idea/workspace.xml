@@ -1,0 +1,984 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="77bf1a9b-7da8-4bde-a19b-a7006f82b439" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/mtools.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtools/mloginfo/sections/transaction_section.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtools/mlogfilter/filters/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mtools/mlogfilter/filters/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtools/mlogfilter/mlogfilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/mtools/mlogfilter/mlogfilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtools/mloginfo/sections/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mtools/mloginfo/sections/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtools/mloginfo/sections/query_section.py" beforeDir="false" afterPath="$PROJECT_DIR$/mtools/mloginfo/sections/query_section.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtools/mplotqueries/mplotqueries.py" beforeDir="false" afterPath="$PROJECT_DIR$/mtools/mplotqueries/mplotqueries.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtools/test/test_mlogfilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/mtools/test/test_mlogfilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtools/test/test_mloginfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/mtools/test/test_mloginfo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtools/util/logevent.py" beforeDir="false" afterPath="$PROJECT_DIR$/mtools/util/logevent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tox.ini" beforeDir="false" afterPath="$PROJECT_DIR$/tox.ini" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mtools/test/test_mlogfilter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mtools/test/test_mplotqueries.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1845">
+              <caret line="123" column="7" selection-start-line="123" selection-start-column="7" selection-end-line="123" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mtools/mplotqueries/mplotqueries.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="792">
+              <caret line="356" column="36" selection-start-line="356" selection-start-column="19" selection-end-line="356" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mtools/util/logevent.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mtools/test/test_mloginfo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5040">
+              <caret line="336" column="68" lean-forward="true" selection-start-line="324" selection-start-column="3" selection-end-line="336" selection-end-column="68" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mtools/test/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="38" selection-start-column="29" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mtools/test/test_util_hci.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2091">
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mtools/test/test_all_import.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="20" column="65" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mtools/test/test_mlaunch_commandlines.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7043">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mtools/mlogfilter/filters/transactions_filter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>usage</find>
+      <find>test_d_le</find>
+      <find>_test_levels</find>
+      <find>test_shorte</find>
+      <find>stdin</find>
+      <find>test_word</find>
+      <find>disk</find>
+      <find>count</find>
+      <find>update</find>
+      <find>allowdisk</find>
+      <find>config.system.sessions</find>
+      <find>applied op</find>
+      <find>type</find>
+      <find>mplotq</find>
+      <find>component</find>
+      <find>level</find>
+      <find>logevents</find>
+      <find>split_token</find>
+      <find>split_tokens</find>
+      <find>REPL</find>
+      <find>group</find>
+      <find>scatter</find>
+      <find>print</find>
+      <find>logevent</find>
+      <find>dns</find>
+      <find>short</find>
+      <find>points</find>
+      <find>queries</find>
+      <find>corr</find>
+      <find>starts</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/mtools/mloginfo/sections/__init__.py" />
+        <option value="$PROJECT_DIR$/mtools/test/test_program.py" />
+        <option value="$PROJECT_DIR$/mtools/mloginfo/mloginfo.py" />
+        <option value="$PROJECT_DIR$/mtools/mlogfilter/mlogfilter.py" />
+        <option value="$PROJECT_DIR$/mtools/mlogfilter/filters/__init__.py" />
+        <option value="$PROJECT_DIR$/mtools/mlogfilter/filters/word_filter.py" />
+        <option value="$PROJECT_DIR$/mtools/mloginfo/mongod1.log" />
+        <option value="$PROJECT_DIR$/tox.ini" />
+        <option value="$PROJECT_DIR$/mtools/mlogfilter/mongod.log" />
+        <option value="$PROJECT_DIR$/mtools/mloginfo/mongod.log" />
+        <option value="$PROJECT_DIR$/mtools/mplotqueries/mongod.log" />
+        <option value="$PROJECT_DIR$/mtools/mplotqueries/mplotqueries.py" />
+        <option value="$PROJECT_DIR$/mtools/mlogfilter/filters/transactions_filter.py" />
+        <option value="$PROJECT_DIR$/mtools/mloginfo/sections/transaction_section.py" />
+        <option value="$PROJECT_DIR$/mtools/util/logevent.py" />
+        <option value="$PROJECT_DIR$/mtools/mloginfo/sections/query_section.py" />
+        <option value="$PROJECT_DIR$/mtools/test/test_mloginfo.py" />
+        <option value="$PROJECT_DIR$/mtools/test/test_mlogfilter.py" />
+        <option value="$PROJECT_DIR$/mtools/test/test_mplotqueries.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="1440" />
+    <option name="width" value="2560" />
+    <option name="height" value="1440" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="mtools" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/mtools_new/mtools" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="mtools" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/mtools_new/mtools" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="mtools" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="mtools" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/mtools_new/mtools" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="mtools" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="mloginfo" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="mtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="mgenerate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="mlaunch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="mlogfilter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="mlogfilter" type="462c0819:PsiDirectoryNode" />
+              <item name="filters" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="mloginfo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="mplotqueries" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="tutorials" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtools" type="462c0819:PsiDirectoryNode" />
+              <item name="tutorials" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mtools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mtools/mplotqueries" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mtools/mloginfo" />
+      <recent name="$PROJECT_DIR$/mtools/test" />
+      <recent name="$PROJECT_DIR$/mtools/mlogfilter" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mtools/mplotqueries" />
+      <recent name="$PROJECT_DIR$/mtools/test/logfiles" />
+      <recent name="$PROJECT_DIR$/mtools/mloginfo" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python tests.Nosetests in test_mplotqueries.py">
+    <configuration name="mlogfilter" type="PythonConfigurationType" factoryName="Python">
+      <module name="mtools" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/mtools_dav/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/mtools/mtools/mlogfilter" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/mtools/mtools/mlogfilter/mlogfilter.py" />
+      <option name="PARAMETERS" value="$PROJECT_DIR$/mtools/test/logfiles/mongod_225.log  --shorten" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="true" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mloginfo" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="mtools" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/mtools_dav/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mtools/mloginfo" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mtools/mloginfo/mloginfo.py" />
+      <option name="PARAMETERS" value="-h" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="true" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mplotqueries" type="PythonConfigurationType" factoryName="Python">
+      <module name="mtools" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/mtools_dav/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mtools/mplotqueries" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mtools/mplotqueries/mplotqueries.py" />
+      <option name="PARAMETERS" value="$PROJECT_DIR$/mtools/mplotqueries/mongod.log --dns" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="true" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Nosetests for mtools.test.test_mlogfilter.TestMLogFilter.test_word" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+      <module name="mtools" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mtools/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;mtools.test.test_mlogfilter.TestMLogFilter.test_word&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Nosetests in test" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+      <module name="mtools" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mtools/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/mtools/test&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Nosetests in test_mlogfilter.py" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+      <module name="mtools" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mtools/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/mtools/test/test_mlogfilter.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Nosetests in test_mloginfo.py" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+      <module name="mtools" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mtools/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/mtools/test/test_mloginfo.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Nosetests in test_mplotqueries.py" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+      <module name="mtools" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mtools/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/mtools/test/test_mplotqueries.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.mlogfilter" />
+      <item itemvalue="Python.mplotqueries" />
+      <item itemvalue="Python.mloginfo" />
+      <item itemvalue="Python tests.Nosetests in test_mlogfilter.py" />
+      <item itemvalue="Python tests.Nosetests for mtools.test.test_mlogfilter.TestMLogFilter.test_word" />
+      <item itemvalue="Python tests.Nosetests in test_mloginfo.py" />
+      <item itemvalue="Python tests.Nosetests in test" />
+      <item itemvalue="Python tests.Nosetests in test_mplotqueries.py" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Nosetests in test_mplotqueries.py" />
+        <item itemvalue="Python tests.Nosetests in test" />
+        <item itemvalue="Python tests.Nosetests in test_mlogfilter.py" />
+        <item itemvalue="Python tests.Nosetests in test_mloginfo.py" />
+        <item itemvalue="Python tests.Nosetests for mtools.test.test_mlogfilter.TestMLogFilter.test_word" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="77bf1a9b-7da8-4bde-a19b-a7006f82b439" name="Default Changelist" comment="" />
+      <created>1561372804092</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1561372804092</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Dummy Commit to test">
+      <created>1561372898952</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1561372898952</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Dummy Commit to test">
+      <created>1561372943790</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1561372943790</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Dummy Commit to test">
+      <created>1561373167113</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1561373167113</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Dummy Commit to test">
+      <created>1561373205544</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1561373205544</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Dummy Commit to test">
+      <created>1561373417097</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1561373417097</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Dummy Commit to test">
+      <created>1561373658837</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1561373658837</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="Nosetests_in_test - 2019.06.27 at 16h 21m 48s.xml">
+      <configuration name="Nosetests in test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_test - 2019.06.27 at 16h 21m 52s.xml">
+      <configuration name="Nosetests in test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_test - 2019.06.27 at 16h 21m 57s.xml">
+      <configuration name="Nosetests in test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_test - 2019.06.27 at 16h 22m 02s.xml">
+      <configuration name="Nosetests in test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_test - 2019.06.27 at 16h 32m 06s.xml">
+      <configuration name="Nosetests in test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_test_mplotqueries_py - 2019.06.27 at 16h 32m 18s.xml">
+      <configuration name="Nosetests in test_mplotqueries.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_test_mplotqueries_py - 2019.06.27 at 16h 33m 04s.xml">
+      <configuration name="Nosetests in test_mplotqueries.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_test_mplotqueries_py - 2019.06.27 at 16h 36m 10s.xml">
+      <configuration name="Nosetests in test_mplotqueries.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_test_mplotqueries_py - 2019.06.27 at 17h 13m 00s.xml">
+      <configuration name="Nosetests in test_mplotqueries.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_test_mplotqueries_py - 2019.06.28 at 10h 06m 36s.xml">
+      <configuration name="Nosetests in test_mplotqueries.py" configurationId="tests" />
+    </history-entry>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1440" y="0" width="2560" height="1440" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13942496" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3218978" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.19927007" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.329927" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32846716" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.log" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Dummy Commit to test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dummy Commit to test" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mtools/test/test_mlogfilter.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/mtools/mloginfo/sections/distinct_section.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="32" selection-start-line="20" selection-start-column="4" selection-end-line="32" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mloginfo/sections/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/test/test_util_logfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1147">
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-requirements.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/test/test_program.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mloginfo/sections/restart_section.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-112" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mgenerate/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mgenerate/mgenerate.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mlogfilter/filters/logline_filter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1660">
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/util/cmdlinetool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1101">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#48#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mlogfilter/filters/base_filter.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mlogfilter/filters/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mloginfo/sections/connection_section.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="677">
+          <caret line="394" selection-start-line="394" selection-end-line="394" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/mtools_dav/lib/python2.7/site-packages/nose/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/mtools_dav/lib/python2.7/site-packages/nose/suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="231" column="41" lean-forward="true" selection-start-line="231" selection-start-column="41" selection-end-line="231" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/test/mongod.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mlogfilter/filters/tablescan_filter.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/argparse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1526">
+          <caret line="2361" selection-start-line="2361" selection-end-line="2361" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mlaunch/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mlaunch/mlaunch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="1691" column="17" selection-start-line="1691" selection-start-column="12" selection-end-line="1691" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mlogfilter/filters/slow_filter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="70" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorials/img/mplotqueries-tutorial-1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$USER_HOME$/mtools_dav/lib/python2.7/os.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mlogfilter/mongod.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="86" column="83" selection-start-line="86" selection-start-column="83" selection-end-line="86" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mloginfo/mongod1.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="771">
+          <caret line="156" selection-start-line="156" selection-end-line="156" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mloginfo/mongod.log.2019-06-10T08-51-53">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="-15474">
+          <caret line="42" column="1030" selection-start-line="42" selection-start-column="1030" selection-end-line="42" selection-end-column="1030" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mlogfilter/filters/word_filter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mlogfilter/mlogfilter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="312" column="34" lean-forward="true" selection-start-line="312" selection-start-column="34" selection-end-line="312" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mloginfo/sections/query_section.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="116" column="63" lean-forward="true" selection-start-line="116" selection-start-column="63" selection-end-line="116" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mloginfo/sections/transaction_section.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="55" selection-start-column="55" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mloginfo/mongod.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="811">
+          <caret line="190" column="211" selection-start-line="190" selection-start-column="211" selection-end-line="190" selection-end-column="211" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mplotqueries/mongod.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="109" column="77" selection-start-line="109" selection-start-column="77" selection-end-line="109" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mloginfo/mloginfo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/test/cover/coverage_html.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/test/cover/mtools_mplotqueries_mplotqueries.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tox.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/test/test_all_help.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/test/test_mlaunch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1335">
+          <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/test/test_mlaunch_commandlines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7043">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mlogfilter/filters/transactions_filter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/test/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="38" selection-start-column="29" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/test/test_util_hci.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2091">
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/test/test_all_import.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="20" column="65" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/test/test_mlogfilter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/mplotqueries/mplotqueries.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="356" column="36" selection-start-line="356" selection-start-column="19" selection-end-line="356" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/test/test_mloginfo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5040">
+          <caret line="336" column="68" lean-forward="true" selection-start-line="324" selection-start-column="3" selection-end-line="336" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/util/logevent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtools/test/test_mplotqueries.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1845">
+          <caret line="123" column="7" selection-start-line="123" selection-start-column="7" selection-end-line="123" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

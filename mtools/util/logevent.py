@@ -1,4 +1,4 @@
-#!/bin/python
+ #!/bin/python
 
 import json
 import re
@@ -56,7 +56,7 @@ class LogEvent(object):
               'Oct', 'Nov', 'Dec']
 
     log_operations = ['query', 'insert', 'update', 'remove', 'getmore',
-                      'command']
+                      'command','transaction','aggregate']
     log_levels = ['D', 'F', 'E', 'W', 'I', 'U']
     log_components = ['-', 'ACCESS', 'COMMAND', 'CONTROL', 'GEO', 'INDEX',
                       'NETWORK', 'QUERY', 'REPL', 'SHARDING', 'STORAGE',
@@ -106,6 +106,24 @@ class LogEvent(object):
         self._actual_query = None
         self._actual_sort = None
 
+
+        #SERVER-36414 - parameters for slow transactions
+        self._lsid = None
+        self._txnNumber = None
+        self._autocommit = None
+        self._readConcern = None
+        self._timeActiveMicros = None
+        self._readTimestamp = None
+        self._terminationCause = None
+        self._locks = None
+        self._commitedCount = 0
+        self._abortedCount = 0
+
+        #SERVER-41349 - connector for DNS resolution logs
+        self._connector = None
+
+
+
         self._command_calculated = False
         self._command = None
 
@@ -130,7 +148,7 @@ class LogEvent(object):
         self._r = None
         self._w = None
         self._conn = None
-
+        self._allowDiskUse = None
         self._level_calculated = False
         self._level = None
         self._component = None
@@ -205,6 +223,18 @@ class LogEvent(object):
 
         return self._duration
 
+    #SERVER-41349 - get connector from the DNS log line
+    @property
+    def connector(self):
+        line_str = self.line_str
+        if(line_str and 'DNS resolution' in line_str):
+            searchString = "connecting to"
+            self._connector = line_str[line_str.rfind(searchString) + len(searchString) + 1:-12]
+
+        return self._connector
+
+
+
     @property
     def datetime(self):
         """Extract datetime if available (lazy)."""
@@ -234,7 +264,7 @@ class LogEvent(object):
 
                     self._reformat_timestamp(self._datetime_format)
                     break
-
+                print(self._datetime)
         return self._datetime
 
     @property
@@ -508,6 +538,15 @@ class LogEvent(object):
         return self._nscanned
 
     @property
+    def timeActiveMicros(self):
+        """Extract timeActiveMicros counter if available (lazy)."""
+        if not self._counters_calculated:
+            self._counters_calculated = True
+            self._extract_counters()
+
+        return self._timeActiveMicros
+
+    @property
     def nscannedObjects(self):
         """
         Extract counters if available (lazy).
@@ -552,6 +591,20 @@ class LogEvent(object):
         return self._nreturned
 
     @property
+    def terminationCause(self):
+
+        #Looks for terminationCause counter in Transaction logs.
+
+        if not self._counters_calculated:
+
+            self._counters_calculated = True
+
+            self._extract_counters()
+
+
+        return self._terminationCause
+
+    @property
     def ninserted(self):
         """Extract ninserted or nInserted counter if available (lazy)."""
         if not self._counters_calculated:
@@ -588,6 +641,25 @@ class LogEvent(object):
         return self._numYields
 
     @property
+
+    def allowDiskUse(self):
+        """Extract allowDiskUse counter for aggregation if available (lazy)."""
+        if not self._counters_calculated:
+            self._counters_calculated = True
+            self._extract_counters()
+
+        return self._allowDiskUse
+
+    @property
+    def readTimestamp(self):
+        """Extract readTimeStamp counter if available (lazy)."""
+        if not self._counters_calculated:
+            self._counters_calculated = True
+            self._extract_counters()
+
+        return self._readTimestamp
+
+    @property
     def planSummary(self):
         """Extract planSummary if available (lazy)."""
         if not self._counters_calculated:
@@ -615,6 +687,49 @@ class LogEvent(object):
         return self._r
 
     @property
+    def lsid(self):
+        """Extract lsid counter if available (lazy)."""
+        self._lsid = self._find_pattern('lsid: ',actual=True)
+        return self._lsid
+
+    @property
+    def locks(self):
+        """Extract locks counter for transactions if available (lazy)."""
+        self._locks = self._find_pattern('locks:', actual=True)
+
+        return self._locks
+
+
+    @property
+    def txnNumber(self):
+        """Extract txnNumber counter for transactions if available (lazy)."""
+        if not self._counters_calculated:
+            self._counters_calculated = True
+            self._extract_counters()
+
+        return self._txnNumber
+
+    @property
+    def autocommit(self):
+        """Extract autocommit counter for transactions if available (lazy)."""
+        if not self._counters_calculated:
+            self._counters_calculated = True
+            self._extract_counters()
+
+        return self._autocommit
+
+    @property
+    def readConcern(self):
+        """Extract readConcern Level if available (lazy)."""
+        if not self._counters_calculated:
+            self._counters_calculated = True
+            self._extract_counters()
+
+        return self._readConcern
+
+
+
+    @property
     def w(self):
         """Extract write lock (w) counter if available (lazy)."""
         if not self._counters_calculated:
@@ -628,7 +743,7 @@ class LogEvent(object):
         # extract counters (if present)
         counters = ['nscanned', 'nscannedObjects', 'ntoreturn', 'nreturned',
                     'ninserted', 'nupdated', 'ndeleted', 'r', 'w', 'numYields',
-                    'planSummary', 'writeConflicts', 'keyUpdates']
+                    'planSummary', 'writeConflicts', 'keyUpdates','allowDiskUse','lsid','txnNumber','autocommit','level','timeActiveMicros','readTimestamp','terminationCause','locks']
 
         # TODO: refactor mtools to use current counter names throughout
         # Transitionary hack: mapping of current names into prior equivalents
@@ -638,7 +753,8 @@ class LogEvent(object):
             'nDeleted': 'ndeleted',
             'nInserted': 'ninserted',
             'nMatched': 'nreturned',
-            'nModified': 'nupdated'
+            'nModified': 'nupdated',
+
         }
         counters.extend(counter_equiv.keys())
 
@@ -646,16 +762,49 @@ class LogEvent(object):
 
         # trigger operation evaluation to get access to offset
         if self.operation:
+
             for t, token in enumerate(split_tokens[self.datetime_nextpos +
-                                                   2:]):
+                                                       2:]):
+
+
+
                 for counter in counters:
+
                     if token.startswith('%s:' % counter):
+
                         try:
+
+
                             # Remap counter to standard name, if applicable
                             counter = counter_equiv.get(counter, counter)
-                            vars(self)['_' + counter] = int((token.split(':')
-                                                             [-1]).replace(',',
-                                                                           ''))
+
+                            #extract allowDiskUse counter
+                            if(counter == 'allowDiskUse' and
+                                token.startswith('allowDiskUse')):
+                                try:
+                                    self._allowDiskUse = (
+                                        split_tokens[t + 1 + self.datetime_nextpos + 2].replace(',', ''))
+
+                                except ValueError:
+                                    pass
+                            elif(counter =='level' and token.startswith('level')):
+                                try:
+                                    self._readConcern = (
+                                    split_tokens[t + 1 + self.datetime_nextpos + 2].replace(',', ''))
+                                except ValueError:
+                                    pass
+                            elif(counter =='readTimestamp' and token.startswith('readTimestamp')):
+                                vars(self)['_' + counter] = (token.split(':')
+                                [-1]).replace(',', '')
+                            elif(counter=='terminationCause' and token.startswith('terminationCause')):
+                                vars(self)['_' + counter] = (token.split(':')
+                                [-1]).replace(',', '')
+                            else :
+                                vars(self)['_' + counter] = int((token.split(':')
+                                [-1]).replace(',',
+                                              ''))
+
+
                         except ValueError:
                             # see if this is a pre-2.5.2 numYields with space
                             # in between (e.g. "numYields: 2")
@@ -666,6 +815,36 @@ class LogEvent(object):
                                     self._numYields = int((split_tokens[t + 1 + self.datetime_nextpos + 2]).replace(',', ''))
                                 except ValueError:
                                     pass
+                            if (counter == 'txnNumber' and
+                                    token.startswith('txnNumber')):
+                                try:
+                                    self._txnNumber = int((split_tokens[t + 1 + self.datetime_nextpos + 2]).replace(',', ''))
+                                    #print(self._txnNumber)
+                                except ValueError:
+                                    pass
+
+                            if (counter == 'autocommit' and
+                                    token.startswith('autocommit')):
+                                try:
+                                    self._autocommit = (split_tokens[t + 1 + self.datetime_nextpos + 2].replace(',', ''))
+                                    #print(self._autocommit)
+                                except ValueError:
+                                    pass
+                            if (counter == 'lsid' and
+                                    token.startswith('lsid')):
+                                try:
+                                    self._lsid = (split_tokens[t + 2 + self.datetime_nextpos + 2].replace(',', ''))
+                                    #print(self._autocommit)
+                                except ValueError:
+                                    pass
+                            if (counter == 'r' and
+                                        token.startswith('r')):
+                                    try:
+                                        self._r = (split_tokens[t + 1 + self.datetime_nextpos + 2].replace(',', ''))
+                                        # print(self._autocommit)
+                                    except ValueError:
+                                        pass
+
                             if (counter == 'planSummary' and
                                     token.startswith('planSummary')):
                                 try:
@@ -739,6 +918,8 @@ class LogEvent(object):
         ndeleted = self.ndeleted
         nupdated = self.nupdated
         numYields = self.numYields
+        usedDisk = self.usedDisk
+        txnNumber = self.txnNumber
         w = self.w
         r = self.r
 
@@ -827,7 +1008,7 @@ class LogEvent(object):
             labels = ['line_str', 'split_tokens', 'datetime', 'operation',
                       'thread', 'namespace', 'nscanned', 'ntoreturn',
                       'nreturned', 'ninserted', 'nupdated', 'ndeleted',
-                      'duration', 'r', 'w', 'numYields']
+                      'duration', 'r', 'w', 'numYields','usedDisk','txtNumber','lsid','autocommit','readConcern','timeActiveMicros','readTimestamp']
 
         for label in labels:
             value = getattr(self, label, None)
@@ -900,7 +1081,14 @@ class LogEvent(object):
         self._nreturned = doc[u'nreturned'] if 'nreturned' in doc else None
         self._ninserted = doc[u'ninserted'] if 'ninserted' in doc else None
         self._ndeleted = doc[u'ndeleted'] if 'ndeleted' in doc else None
-        self._numYields = doc[u'numYield'] if 'numYield' in doc else None
+        self._numYields = doc[u'numYields'] if 'numYields' in doc else None
+        self._usedDisk = doc[u'usedDisk'] if 'usedDisk' in doc else None
+        self._txnNumber = doc[u'txnNumber'] if 'txnNumber' in doc else None
+        self._lsid = doc[u'lsid'] if 'lsid' in doc else None
+        self._autocommit = doc[u'autocommit'] if 'autocommit' in doc else None
+        self._readConcern= doc[u'level'] if 'level' in doc else None
+        self._timeActiveMicros = doc[u'timeActiveMicros'] if 'timeActiveMicros' in doc else None
+        self._timeActiveMicros = doc[u'readTimestamp'] if 'readTimestamp' in doc else None
 
         if u'lockStats' in doc:
             self._r = doc[u'lockStats'][u'timeLockedMicros'][u'r']
@@ -938,3 +1126,4 @@ class LogEvent(object):
                                               payload=payload, scanned=scanned,
                                               yields=yields, locks=locks,
                                               duration=duration))
+

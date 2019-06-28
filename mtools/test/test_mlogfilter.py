@@ -28,14 +28,14 @@ class TestMLogFilter(object):
 
     def setup(self):
         """Start up method to create mlaunch tool and find free port."""
+        stdin_allowed = True
         self.tool = MLogFilterTool()
 
         self._test_base()
 
     def _test_base(self, filename='mongod_225.log'):
         # load logfile(s)
-        self.logfile_path = os.path.join(os.path.dirname(mtools.__file__),
-                                         'test/logfiles/', filename)
+        self.logfile_path = os.path.join(os.path.dirname(mtools.__file__),'test/logfiles/', filename)
         self.logfile = LogFile(open(self.logfile_path, 'rb'))
         self.current_year = datetime.now().year
 
@@ -144,10 +144,19 @@ class TestMLogFilter(object):
             assert(len(line) <= 50)
 
     def test_shorten_default(self):
+
         self.tool.run('%s --shorten' % self.logfile_path)
         output = sys.stdout.getvalue()
         for line in output.splitlines():
             assert(len(line) <= 200)
+
+
+    def test_transaction(self):
+
+        self.tool.run('%s --transactions' % self.logfile_path)
+        output = sys.stdout.getvalue()
+        for line in output.splitlines():
+            assert(line.startswith("TRANSACTIONS"))
 
     def test_merge_same(self):
         file_length = len(self.logfile)
@@ -355,11 +364,7 @@ class TestMLogFilter(object):
             le = LogEvent(line)
             assert(le.planSummary == "IXSCAN")
 
-    def test_word(self):
-        self.tool.run('%s --word lock' % self.logfile_path)
-        output = sys.stdout.getvalue()
-        for line in output.splitlines():
-            assert('lock' in line)
+
 
     def test_mask_end(self):
         mask_path = os.path.join(os.path.dirname(mtools.__file__),
@@ -420,11 +425,6 @@ class TestMLogFilter(object):
                    (le.datetime >= event2 - padding and
                     le.datetime <= event2 + padding))
 
-    @raises(SystemExit)
-    def test_no_logfile(self):
-        """Test that not providing at least 1 log file throws clean error."""
-
-        self.tool.run('--from Jan 1')
 
     def test_year_rollover_1(self):
         """
