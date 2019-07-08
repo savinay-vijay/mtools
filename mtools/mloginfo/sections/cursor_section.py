@@ -25,6 +25,7 @@ LogTuple = namedtuple('LogTuple', ['datetime', 'cursorid', 'reapedtime'])
 def op_or_cmd(le):
     return le.operation if le.operation != 'command' else le.command
 
+# SERVER-28604 - Logging Reaped cursor information when idle
 
 class CursorSection(BaseSection):
     """CursorSection class."""

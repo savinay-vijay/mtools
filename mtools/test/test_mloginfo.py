@@ -306,7 +306,6 @@ class TestMLogInfo(object):
         lines = output.splitlines()
         assert any(map(lambda line: 'CURSOR' in line, lines))
 
-
     def test_restarts_output(self):
         # different log file
         self.tool.run('%s --restarts' % self.logfile_path)
