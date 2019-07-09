@@ -6,10 +6,6 @@ from mtools.util import OrderedDict
 from mtools.util.grouping import Grouping
 from mtools.util.print_table import print_table
 
-try:
-    import numpy as np
-except ImportError:
-    np = None
 
 LogTuple = namedtuple('LogTuple', ['namespace', 'operation', 'bytesRead', 'bytesWritten', 'timeReadingMicros', 'timeWritingMicros'])
 
@@ -56,13 +52,9 @@ class StorageStatsSection(BaseSection):
             # update progress bar every 1000 lines
             if self.mloginfo.progress_bar_enabled and (i % 1000 == 0):
                 if le.datetime:
-                    progress_curr = self.mloginfo._datetime_to_epoch(le
-                                                                     .datetime)
+                    progress_curr = self.mloginfo._datetime_to_epoch(le.datetime)
                     if progress_total:
-                        (self.mloginfo
-                         .update_progress(float(progress_curr -
-                                                progress_start) /
-                                          progress_total))
+                        (self.mloginfo.update_progress(float(progress_curr-progress_start)/progress_total))
 
             if (le.operation in ['update'] or le.command in ['insert']):
                 lt = LogTuple(namespace=le.namespace, operation=op_or_cmd(le),
