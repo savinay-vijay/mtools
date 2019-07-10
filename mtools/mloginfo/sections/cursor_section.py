@@ -13,12 +13,6 @@ from mtools.util import OrderedDict
 from mtools.util.grouping import Grouping
 from mtools.util.print_table import print_table
 
-
-try:
-    import numpy as np
-except ImportError:
-    np = None
-
 LogTuple = namedtuple('LogTuple', ['datetime', 'cursorid', 'reapedtime'])
 
 
@@ -43,7 +37,6 @@ class CursorSection(BaseSection):
         return self.mloginfo.args['cursor']
 
     def run(self):
-
         """Run this section and print out information."""
         grouping = Grouping(group_by=lambda x: (x.datetime, x.cursorid, x.reapedtime))
         logfile = self.mloginfo.logfile
@@ -55,8 +48,7 @@ class CursorSection(BaseSection):
             self.mloginfo.progress_bar_enabled = False
 
         for i, le in enumerate(logfile):
-
-            if (re.search('Cursor id', le.line_str)):
+            if ('Cursor id' in le.line_str):
                 lt = LogTuple(le.datetime, le.cursor, le._reapedtime)
                 grouping.add(lt)
 
@@ -67,7 +59,7 @@ class CursorSection(BaseSection):
             self.mloginfo.update_progress(1.0)
 
         # no cursor information in the log file
-        if len(grouping) < 1:
+        if not len(grouping):
             print('no cursor information found.')
             return
 
