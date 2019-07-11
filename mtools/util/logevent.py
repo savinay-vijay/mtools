@@ -212,13 +212,11 @@ class LogEvent(object):
         """Pull the cursor information if available (lazy)."""
         line_str = self.line_str
         # SERVER-28604 Checking reaped cursor information
-        if "Cursor id" in self.line_str:
-            self._cursorid = str(line_str[line_str.find("Cursor id") + len("Cursor id"): - 55])
-        if "timed out, idle since" in self.line_str:
-            self._reapedtime = str(line_str[line_str.find("timed out, idle since") +
-                                           len("timed out, idle since"): - 4])
-        return self._cursorid
+        groups = re.search("Cursor id ([\w.]+) timed out, idle since ([^\n]*)", line_str)
+        self._cursorid = groups.group(1)
+        self._reapedtime = groups.group(2)
 
+        return self._cursorid
     @property
     def datetime(self):
         """Extract datetime if available (lazy)."""
