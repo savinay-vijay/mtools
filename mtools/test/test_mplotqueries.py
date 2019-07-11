@@ -26,6 +26,14 @@ class TestMPlotQueries(object):
         self.logfile_path = os.path.join(os.path.dirname(mtools.__file__),'test/logfiles/', filename)
         self.logfile = LogFile(open(self.logfile_path, 'rb'))
 
+    def test_oplog(self):
+        # different logfile for oplogs
+        logfile_oplog = "mtools/test/logfiles/mongod.log"
+        self.tool.run('%s --oplog --group operation' % logfile_oplog)
+        output = sys.stdout.getvalue()
+        lines = output.splitlines()
+        assert any('SCATTER plot' in line for line in lines)
+        
     def test_checkpoints(self, filename='mongod.log'):
         # different logfile for the slow Checkpoints
         self.logfile_path = os.path.join(os.path.dirname(mtools.__file__), 'test/logfiles/', filename)
