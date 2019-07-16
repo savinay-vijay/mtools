@@ -212,7 +212,10 @@ class LogFile(InputSource):
         # use readline here because next() iterator uses internal readahead
         # buffer so seek position is wrong
         line = self.filehandle.readline()
-        line = line.decode('utf-8', 'replace')
+
+        if isinstance(line, bytes):
+            line = line.decode('utf-8', 'replace')
+
         if line == '':
             raise StopIteration
         line = line.rstrip('\n')
@@ -256,14 +259,18 @@ class LogFile(InputSource):
                 if not self.from_stdin:
                     self.filehandle.seek(0)
 
-                # now raise StopIteration exception
-                raise e
+                # return (instead of raising StopIteration exception) per PEP 479
+                return
 
             # get start date for stdin input
             if not self.start and self.from_stdin:
                 if le and le.datetime:
                     self._start = le.datetime
-            yield le
+
+            try:
+                yield le
+            except StopIteration:
+                return
 
     states = (['PRIMARY', 'SECONDARY', 'DOWN', 'STARTUP', 'STARTUP2',
                'RECOVERING', 'ROLLBACK', 'ARBITER', 'UNKNOWN'])
@@ -280,7 +287,9 @@ class LogFile(InputSource):
 
         ln = 0
         for ln, line in enumerate(self.filehandle):
-            line = line.decode("utf-8", "replace")
+            if isinstance(line, bytes):
+                line = line.decode("utf-8", "replace")
+
             if (self._has_level is None and
                     line[28:31].strip() in LogEvent.log_levels and
                     line[31:39].strip() in LogEvent.log_components):
@@ -491,7 +500,10 @@ class LogFile(InputSource):
                              % self.filehandle.name)
         else:
             self.prev_pos = curr_pos
-        buff = buff.decode("utf-8", "replace")
+
+        if isinstance(buff, bytes):
+            buff = buff.decode("utf-8", "replace")
+
         newline_pos = buff.rfind('\n')
         if prev:
             newline_pos = buff[:newline_pos].rfind('\n')
