@@ -134,7 +134,6 @@ class LogEvent(object):
         self._level_calculated = False
         self._level = None
         self._component = None
-
         self.merge_marker_str = ''
 
 
@@ -205,6 +204,16 @@ class LogEvent(object):
 
         return self._duration
 
+    @property
+    def cursor(self):
+        """Pull the cursor information if available (lazy)."""
+        line_str = self.line_str
+        # SERVER-28604 Checking reaped cursor information
+        groups = re.search("Cursor id ([\w.]+) timed out, idle since ([^\n]*)", line_str)
+        self._cursorid = groups.group(1)
+        self._reapedtime = groups.group(2)
+
+        return self._cursorid
     @property
     def datetime(self):
         """Extract datetime if available (lazy)."""
@@ -638,7 +647,9 @@ class LogEvent(object):
             'nDeleted': 'ndeleted',
             'nInserted': 'ninserted',
             'nMatched': 'nreturned',
-            'nModified': 'nupdated'
+            'nModified': 'nupdated',
+            'cursorid' : 'cursorid',
+            'repaedtime' : 'reapedtime'
         }
         counters.extend(counter_equiv.keys())
 
@@ -827,7 +838,7 @@ class LogEvent(object):
             labels = ['line_str', 'split_tokens', 'datetime', 'operation',
                       'thread', 'namespace', 'nscanned', 'ntoreturn',
                       'nreturned', 'ninserted', 'nupdated', 'ndeleted',
-                      'duration', 'r', 'w', 'numYields']
+                      'duration', 'r', 'w', 'numYields', 'cursorid', 'reapedtime']
 
         for label in labels:
             value = getattr(self, label, None)
