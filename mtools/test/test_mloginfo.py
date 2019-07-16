@@ -300,7 +300,7 @@ class TestMLogInfo(object):
 
     def test_cursor_output(self):
         # different log file
-        logfile_path = "mtools/test/logfiles/mongod.log"
+        logfile_path = "mtools/test/logfiles/mongod_4.0.10_reapedcursor.log"
         self.tool.run('%s --cursor' % logfile_path)
         output = sys.stdout.getvalue()
         lines = output.splitlines()

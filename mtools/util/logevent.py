@@ -134,9 +134,6 @@ class LogEvent(object):
         self._level_calculated = False
         self._level = None
         self._component = None
-        self._cursorid = None
-        self._reapedtime = None
-
         self.merge_marker_str = ''
 
 
@@ -753,8 +750,6 @@ class LogEvent(object):
         ndeleted = self.ndeleted
         nupdated = self.nupdated
         numYields = self.numYields
-        cursorid = self._cursorid
-        reapedtime = self._reapedtime
         w = self.w
         r = self.r
 
