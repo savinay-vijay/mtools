@@ -300,6 +300,7 @@ class TestMLogInfo(object):
 
     def test_storagestats_output(self):
         # different log file
+        self.logfile_path = "mtools/test/logfiles/mongod_4.0.10_storagestats.log"
         self.tool.run('%s --storagestats' % self.logfile_path)
         output = sys.stdout.getvalue()
         lines = output.splitlines()

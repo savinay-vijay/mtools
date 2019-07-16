@@ -69,7 +69,7 @@ class StorageStatsSection(BaseSection):
             self.mloginfo.update_progress(1.0)
 
         # no queries in the log file
-        if len(grouping) < 1:
+        if not len(grouping):
             print('no statistics found.')
             return
 

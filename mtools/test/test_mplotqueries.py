@@ -26,7 +26,7 @@ class TestMPlotQueries(object):
         self.logfile_path = os.path.join(os.path.dirname(mtools.__file__),'test/logfiles/', filename)
         self.logfile = LogFile(open(self.logfile_path, 'rb'))
 
-    def test_storagestats(self, filename='mongod.log'):
+    def test_storagestats(self, filename='mongod_4.0.10_storagestats.log'):
         #different logfile for DNS
         self.logfile_path = os.path.join(os.path.dirname(mtools.__file__),'test/logfiles/', filename)
         self.tool.run('%s --storagestats --yaxis bytesRead' % self.logfile_path)
